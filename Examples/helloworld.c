@@ -35,24 +35,27 @@ int main(void)
 
     sh1106_init(sh1106_fd, buffer);
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 2; i++) {
         sh1106_fill(buffer, 0x00);
-        sh1106_draw_rect(buffer, 10, 10, 100, 10);
+        sh1106_draw_rect(buffer, 10, 10, 100, 10, 1);
         sh1106_update_screen(sh1106_fd, buffer);
         sleep(1);
 
         sh1106_fill(buffer, 0x00);
-        sh1106_draw_rect_filled(buffer, 50, 20, 100, 30);
+        sh1106_draw_rect_filled(buffer, 50, 20, 100, 30, 1);
+        sh1106_draw_rect_filled(buffer, 100, 40, 30, 10, 0);
         sh1106_update_screen(sh1106_fd, buffer);
         sleep(1);
         
         sh1106_fill(buffer, 0x00);
-        sh1106_draw_line(buffer, 0, 0, 60, 20);
+        sh1106_draw_line(buffer, 0, 0, 60, 20, 1);
+        sh1106_draw_line(buffer, 10, 60, 40, 20, 1);
         sh1106_update_screen(sh1106_fd, buffer);
         sleep(1);
         
         sh1106_fill(buffer, 0x00);
-        sh1106_draw_circle_filled(buffer, 40, 50, 30);
+        sh1106_draw_circle_filled(buffer, 40, 50, 30, 1);
+        sh1106_draw_circle_filled(buffer, 10, 80, 20, 0);
         sh1106_update_screen(sh1106_fd, buffer);
         sleep(1);
     }
