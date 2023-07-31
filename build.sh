@@ -37,6 +37,7 @@ elif [[ $1 == "login" ]]; then
 else
     mkdir -p Build/
     $CC $C_FLAGS sh1106_driver.c sh1106_draw.c Examples/helloworld.c -o Build/helloworld.o $LIBS 
+    $CC $C_FLAGS sh1106_driver.c sh1106_draw.c Examples/moving_rectangle.c -o Build/moving_rectangle.o $LIBS 
 fi
 
 set +x
