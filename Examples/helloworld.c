@@ -54,8 +54,8 @@ int main(void)
         sleep(1);
         
         sh1106_fill(buffer, 0x00);
-        sh1106_draw_circle_filled(buffer, 40, 50, 30, 1);
-        sh1106_draw_circle_filled(buffer, 10, 80, 20, 0);
+        sh1106_draw_circle_filled(buffer, 50, 30, 40, 1);
+        sh1106_draw_circle_filled(buffer, 80, 20, 10, 0);
         sh1106_update_screen(sh1106_fd, buffer);
         sleep(1);
     }

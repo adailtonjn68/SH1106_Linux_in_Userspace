@@ -113,9 +113,9 @@ void sh1106_draw_line(uint8_t *const buffer,
 }
 
 
-void sh1106_draw_circle_filled(uint8_t *const buffer, const uint16_t radius, 
+void sh1106_draw_circle_filled(uint8_t *const buffer,  
                                const int16_t center_x, const int16_t center_y,
-                               const uint8_t color)
+                               const uint16_t radius, const uint8_t color)
 {
     int16_t dx, dy;
     const int16_t x1 = (int16_t) (center_x + radius);
