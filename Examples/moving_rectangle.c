@@ -63,7 +63,7 @@ int main(void)
     for (int i = 0; i < 300; i++) {
         sh1106_fill(buffer, 0x00);
         update_rectangle(&rect);
-        sh1106_draw_rect(buffer, rect.pos.x, rect.pos.y, 
+        sh1106_draw_rect(buffer, (int16_t) rect.pos.x, (int16_t) rect.pos.y, 
                          rect.width, rect.height, 1);
         sh1106_update_screen(sh1106_fd, buffer);
     }

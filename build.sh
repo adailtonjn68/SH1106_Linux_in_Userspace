@@ -36,8 +36,12 @@ elif [[ $1 == "login" ]]; then
     ssh "${user}@${server}"
 else
     mkdir -p Build/
-    $CC $C_FLAGS sh1106_driver.c sh1106_draw.c Examples/helloworld.c -o Build/helloworld.o $LIBS 
-    $CC $C_FLAGS sh1106_driver.c sh1106_draw.c Examples/moving_rectangle.c -o Build/moving_rectangle.o $LIBS 
+    $CC $C_FLAGS sh1106_driver.c sh1106_draw.c Examples/helloworld.c -o \
+        Build/helloworld.o $LIBS 
+    $CC $C_FLAGS sh1106_driver.c sh1106_draw.c Examples/moving_rectangle.c -o \
+        Build/moving_rectangle.o $LIBS 
+    $CC $C_FLAGS sh1106_driver.c sh1106_draw.c sh1106_file_io.c \
+        Examples/export_buffer.c -o Build/export_buffer.o $LIBS 
 fi
 
 set +x
