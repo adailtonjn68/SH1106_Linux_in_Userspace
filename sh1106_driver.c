@@ -37,7 +37,7 @@ ssize_t sh1106_write_buffer(const int fd, const uint8_t *const data,
 
 void sh1106_init(const int fd, uint8_t *const buffer)
 {   
-    sh1106_write_command(fd, 0xAE); //display off
+    sh1106_write_command(fd, SH1106_DISPLAY_OFF); //display off
 	sh1106_write_command(fd, 0x20); //Set Memory Addressing Mode
 	sh1106_write_command(fd, 0x10); //00,Horizontal Addressing Mode;01,Vertical Addressing Mode;10,Page Addressing Mode (RESET);11,Invalid
 	sh1106_write_command(fd, 0xB0); //Set Page Start Address for Page Addressing Mode,0-7
@@ -47,7 +47,7 @@ void sh1106_init(const int fd, uint8_t *const buffer)
 	sh1106_write_command(fd, 0x40); //--set start line address
 	sh1106_write_command(fd, 0x81); //--set contrast control register
 	sh1106_write_command(fd, 0xFF);
-	sh1106_write_command(fd, 0xA1); //--set segment re-map 0 to 127
+	sh1106_write_command(fd, SH1106_SET_SEGMENT_REMAP_REVERSE_DIRECTION); //--set segment re-map 0 to 127
 	sh1106_write_command(fd, 0xA6); //--set normal display
 	sh1106_write_command(fd, 0xA8); //--set multiplex ratio(1 to 64)
 	sh1106_write_command(fd, 0x3F); //
@@ -60,11 +60,11 @@ void sh1106_init(const int fd, uint8_t *const buffer)
 	sh1106_write_command(fd, 0x22); //
 	sh1106_write_command(fd, 0xDA); //--set com pins hardware configuration
 	sh1106_write_command(fd, 0x12);
-	sh1106_write_command(fd, 0xDB); //--set vcomh
+	sh1106_write_command(fd, SH1106_SET_VCOM_DESELECT_LEVEL); //--set vcomh
 	sh1106_write_command(fd, 0x20); //0x20,0.77xVcc
 	sh1106_write_command(fd, 0x8D); //--set DC-DC enable
 	sh1106_write_command(fd, 0x14); //
-	sh1106_write_command(fd, 0xAF); //--turn on SH1106 panel
+	sh1106_write_command(fd, SH1106_DISPLAY_ON); //--turn on SH1106 panel
 
     sh1106_write_command(fd, SH1106_DEACTIVATE_SCROLL);
 
